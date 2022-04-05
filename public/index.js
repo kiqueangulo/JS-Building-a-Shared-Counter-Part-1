@@ -54,6 +54,18 @@ async function main(){
             })
         })
     })
+
+    setInterval(async function() {
+        await fetch('http://127.0.0.1:9001/counter', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                value: countValue,
+            })
+        })
+    }, 1000);
 }
 
 main();
